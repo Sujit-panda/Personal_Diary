@@ -1,0 +1,249 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<html>
+<head>
+    <style>
+        body {
+            padding: 0 0 0 0;
+            margin: 0;
+        }
+        *::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        *::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        *::-webkit-scrollbar-thumb {
+            background-color: grey;
+        }
+        .photo-box {
+            width: 100%;
+            height: 678px;
+        }
+
+        .photo {
+            position: relative;
+            padding: 0px 0px 0px 0px;
+        }
+        p {
+            padding: 25px 5px 25px 5px;
+            text-align:justify;
+        }
+        .box {
+            width: 100%;
+            height: 500px;
+            background-color: #232221;
+            padding: 40px 32px ;
+            color: white;
+        }
+        .box3 {
+            width: 100%;
+            height: 300px;
+            background-image: url("https://i.pinimg.com/564x/33/bc/97/33bc97056253c323f8f1f058762845a7.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            padding: 40px 60px;
+            color: white;
+        }
+        .icons {
+            margin-left: 150px;
+            margin-right: 134px;
+            style:"-webkit-filter: invert(1); filter: invert(1);"
+        }
+        #leftbox {
+            float: left;
+            width: 30%;
+            height: 280px;
+            color: white;
+            margin-left: 36px;
+            padding-right: 10px;
+        }
+
+        #middlebox {
+            float: left;
+            width: 30%;
+            height: 280px;
+            color: white;
+            margin-left: 20px;
+            padding-right: 10px;
+        }
+
+        #rightbox {
+            float: left;
+            width: 30%;
+            height: 280px;
+            color: white;
+            margin-left: 20px;
+            padding-right: 10px;
+        }
+
+        a {
+            color: lightgrey;
+            text-decoration: none;
+            transition: .5s;
+            font-family: Montserrat, sans-serif;
+        }
+        a:hover::before {
+            transform: scale(1.1);
+        }
+
+        a:hover {
+                font-weight: bold;
+                color: white;
+                text-shadow: 0 0 10px white;
+            }
+
+        #id1:hover {
+            opacity: 0.7;
+        }
+        .image-gallery {
+            display: flex;
+            overflow: hidden;
+            scroll-snap-type: x mandatory;
+            scroll-snap-align: start;
+            white-space: nowrap;
+        }
+        .image-gallery img
+
+        {
+            width: 200px;
+            height: 150px;
+            object-fit: cover; /* Resize images to fit while maintaining aspect ratio */
+            margin: 10px;
+            border-radius: 5px;
+            filter: grayscale(100%);
+            transition: filter 0.5s ease-in-out; /* Smooth transition */
+        }
+
+        .image-gallery img:hover {
+                filter: none; /* Show color on hover */
+            }
+        h1, h2, h3, h4,font {
+            font-family: Georgia, serif;
+        }
+    </style>
+</head>
+<body>
+    </div>
+    <div style="margin-top:-20px;">
+        <img src="https://i.pinimg.com/originals/d0/cb/d7/d0cbd712ddb1ac7ad31bc5dcd628611c.jpg" height=560px" width="100%">
+        
+        <!--..................................................................................................................................-->
+        @if (Request.IsAuthenticated)
+        {
+            using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+            {
+                @Html.AntiForgeryToken()
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li><p title="Click here to start adding tasks" id="id1" style="margin-top:-480px; padding-left: 210px;">@Html.ActionLink("Add Tasks", "", "TaskTables", null, htmlAttributes: new { style = "color: black;font-family: Georgia, serif; font-weight:bold; font-size: 25px;" })</p></li>
+                    <li><p title="Click here to start writing in your diary" id="id1" style="margin-top: -155px; margin-left: 890px; transform: rotate(1deg) ">@Html.ActionLink("Write Diary", "Create", "Dairies", null, htmlAttributes: new { style = "color: black;font-family: Georgia, serif; font-weight:bold; font-size: 25px;" })</li>
+                </ul>
+                }
+            }
+        else
+            {
+            <ul class="nav navbar-nav navbar-right">
+                <li><p title="Click here to start adding tasks" id="id1" style="margin-top: -480px; margin-left: 210px; ">@Html.ActionLink("Add Tasks", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", style = "color: black;font-family: Georgia, serif; font-weight:bold; font-size: 25px;" })</p></li>
+                <li><p title="Click here to start writing in your diary"id="id1" style="margin-top: -155px; margin-left: 890px; transform: rotate(1deg) ">@Html.ActionLink("Write Diary", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", style = "color: black;font-family: Georgia, serif; font-weight:bold; font-size: 25px;" })</p></li>
+            </ul>
+        }
+    </div>
+    <!--..................................................................................................................................-->
+
+    <div id="target-div" style="height:630px; padding: 28px 40px 30px">
+        <center><img src="https://i.pinimg.com/564x/81/4c/90/814c9024401b123a1ba0e8ec50d0e9b5.jpg" height="120px" width="120px"></center>
+        <center><font size="6">Keep a private and free online diary</font></center>
+        <p style="padding: 25px 15px 25px 15px; margin-top: 10px; ">
+            Imagine a place where your brilliant ideas are not just fleeting sparks, but treasures to be cherished and nurtured. Mindscribe provides the canvas for your creativity, allowing you to capture those fleeting moments of inspiration and turn them into something tangible.
+            But Mindscribe is more than just a repository for your thoughts and ideas. It's a tool for introspection and self-discovery, guiding you on a journey of personal growth and reflection.
+            <br /><br />As you pour your thoughts onto the virtual pages of Mindscribe, you'll find clarity and insight, gaining a deeper understanding of yourself and the world around you.
+            Are you ready to embark on this journey of introspection and creativity? Step into Mindscribe, where your thoughts are safe, and your ideas are boundless.
+        </p>
+
+        <div class="image-gallery">
+            <img src="https://i.pinimg.com/736x/73/a7/68/73a768a8ed6cb0666f7c3d1342418daf.jpg" alt="Image 1">
+            <img src="https://i.pinimg.com/564x/26/cf/8e/26cf8e5d2d7310ddc41368a7deabd15f.jpg" alt="Image 2">
+            <img src="https://i.pinimg.com/564x/67/60/77/676077dae0a4c9de570bd4a050e92436.jpg" alt="Image 3">
+            <img src="https://i.pinimg.com/564x/c1/e4/7d/c1e47df4ffd2ba7537c97f3b0f6cf57b.jpg" alt="Image 4">
+            <img src="https://i.pinimg.com/564x/19/0a/99/190a99e720e9d30eb011d6008e65744c.jpg" alt="Image 5">
+            <img src="https://i.pinimg.com/564x/68/e1/a4/68e1a4f211bfbefab7757ceae59a807a.jpg" alt="Image 6">
+        </div>
+    </div>
+
+    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiTu4RApt5oMLL_2lHH_N2YBYA6BT74KVALYUHL3jflhqDQDFlgLi-9EoSMLDX_-V2k1CXWSdlK65d1BlkbRWAXJeUpeMe-OZ1SvEL_lduCpe-n5juO-7s62_enS-VLXIy_LxGe-21m81S9xOnajZydSUBsOP3W82AasLu0nQ9jLtgDda3pZ27S2hqMJq8/w762-h430/Beige%20Brown%20Neutral%20Warm%20Minimalist%20Clean%20Modern%20November%202022%20Desktop%20Wallpaper%20(1).png" height=510px" width="100%">
+
+    <div id="target-div2" class="box">
+        <center><font size="6">Features and Uniqueness Unveiled</font></center>
+        <br />
+
+        <div class="box1" style="margin-top:20px">
+
+            <img class="icons" src="https://monkkee.com/assets/private-479301c8e1f4aa7f3f0e9307e8867eeb87e7ffcc0b1959ab66cc7c4d88234a04.svg" style="-webkit-filter: invert(1); filter: invert(1); height="87px;" width="87px">
+            <img class="icons" src="https://static.vecteezy.com/system/resources/thumbnails/012/289/532/small/to-do-list-icon-with-hand-drawn-text-checklist-task-list-transparent-background-illustration-png.png" style="-webkit-filter: invert(1); filter: invert(1);" height="100px" width="100px">
+            <img class="icons" src="https://monkkee.com/assets/cloud-31a0baa070193e0146a95a9018b4b967efa4c8003a5005ee99a20adf6e1647fb.svg" height="90px" width="90px" style="-webkit-filter: invert(1); filter: invert(1);">
+
+            <div class="box2">
+                <div id=leftbox>
+                    <h4 style="padding: 30px 68px 5px ">Secret and private</h4>
+                    <p>
+                        MindScribe ensures your diary remains private, with no option for public viewing, keeping your secrets safe, much like a traditional paper diary
+                    </p>
+                </div>
+
+                <div id="middlebox">
+                    <h4 style="padding: 30px 68px 5px ">Task Management</h4>
+                    <p>MindScribe also provides a robust Task Management feature, allowing users to effortlessly organize their to-dos and stay on top of their tasks.</p>
+                </div>
+
+                <div id="rightbox">
+                    <h4 style="padding: 30px 66px 5px ">Access via Internet</h4>
+                    <p>With MindScribe all you need is a computer with an Internet connection. Whether you're at home or on the go, you can access your diary anytime, anywhere, allowing you to write whenever inspiration strikes.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="background-color: lightgrey; height:250px; padding: 70px 40px;">
+        <center><h2>Start your journey today</h2></center>
+        <p>Embrace the journey of accomplishing tasks and reflecting on your experiences. In your personal diary, each entry and completed task is a testament to your progress and growth. Let your diary be a beacon of positivity, guiding you through each day with purpose and fulfillment</p>
+    </div>
+    <div style="height:660px; padding: 30px 70px 30px">
+        <img src="https://i.pinimg.com/736x/a2/1c/59/a21c59f1eaf16eb814e0b08a97cb757f.jpg" height="600px;" width="520px" />
+        <img src="https://i.pinimg.com/564x/83/15/aa/8315aa0ac9669d5853afe46bf9b08ea5.jpg" height="600px;" width="520px" style="float: right;" />
+    </div>
+
+    <div style="background-color: lightgrey; height:250px; padding: 70px 40px">
+        <center><h2>Start writing today and change your life</h2></center>
+        <p>People who keep a journal report being happier and healthier. Those who keep a journal often find themselves happier and healthier, as the act of writing fosters selfreflection and mindfulness. Your diary can be a trusted companion, guiding you towards a more fulfilling and balanced life.</p>
+    </div>
+
+    <div class="box3">
+        <div id="leftbox">
+            <img src="https://i.pinimg.com/736x/1a/c8/4e/1ac84eff8f76ad8a4994b9cb54dd284c.jpg" height="130px" width="130px" />
+            <div>Your all-in-one for tasks</div>
+            <div>and thoughts!</div>
+        </div>
+        <div id="middlebox" style="margin-left:130px;">
+            <p style="margin-top: 30px; font-family: Georgia, serif; font-size: 20px; font-weight: bold;">About Us</p>
+            <div style="margin-top: 27px;">
+                <a style="font-family:Arial;" href="#target-div">Get to know us</a><br /><br />
+                <a style="font-family:Arial; margin-left: -28px;" href="#target-div2">Features and Uniqueness</a>
+
+            </div>
+        </div>
+        <div id="middlebox" style="float:right; margin-left:40px; height: 10px; width:80px; margin-right: 100px;">
+            <p style="font-family: Georgia, serif; font-size: 20px; font-weight: bold; margin-top: 30px; margin-bottom: -20px; margin-left: -20px;">Contact<font color="black">_</font>Us</p>
+            <div>
+                <p style="display: inline-block;"><img src="https://icon-library.com/images/phone-icon-white-png/phone-icon-white-png-6.jpg" style="float: left; margin-left: -25px;margin-top: 28px;" height="17px" width="17px"><font size="3" style="font-family: arial; float:left; margin-left: -3px;">&nbsp&nbsp&nbsp +91&nbsp9836485220</font></p>
+                <img src="https://pngimg.com/d/envelope_PNG18355.png" style="margin-left: -190px; margin-top: 2px;" height="22px" width="22px"><font size="3" style="font-family: arial; float:left; margin-left: -29px; margin-top: -45px; ">&nbsp&nbsp mindscribe2024@gmail.com</font>
+            </div>
+        </div>
+    </div>
+    <div style="margin-top:-100px"></div>
+</body>
+</html>

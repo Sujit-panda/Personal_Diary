@@ -1,0 +1,347 @@
+﻿body {
+    padding-top: 0px;
+    padding-bottom: 20px;
+    font-family: "Montserrat", sans-serif;
+    background-image: url("https://i.pinimg.com/564x/1e/58/e7/1e58e71e39db448421b9a34bf038105c.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+
+/*----------------------------------------------------------------------------------------------------------------------------------*/
+/*Css for Task Table*/
+#taskheading {
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+}
+
+#tasktable button a {
+    color: white;
+    text-decoration: none;
+}
+
+#tasktable button {
+    justify-content: center;
+    align-content: center;
+}
+
+#createbtn a {
+    color: white;
+    text-decoration: none;
+    font-family: "Montserrat", sans-serif;
+}
+
+#diarybtn {
+    align-items: center;
+}
+
+    #diarybtn a {
+        color: white;
+        font-family: "Montserrat", sans-serif;
+        text-decoration: none;
+    }
+/*ChatGPT generated CSS*/
+#tasktable {
+    width: 100%;
+    padding: 20px;
+    border-collapse: collapse;
+    font-family: "Montserrat", sans-serif;
+    background-color: #d4edda; /* Light green background */
+    border: 1px solid #c3e6cb; /* Green border */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.403), 0 2px 5px rgba(0, 0, 0, 0.24);
+}
+
+    #tasktable th, #tasktable td {
+        padding: 8px;
+        border: 1px solid #ddd;
+        text-align: center;
+    }
+
+    /* Changing background color to a light shade of yellow */
+    #tasktable th {
+        background-color: #ffffcc; /* Light shade of yellow */
+        font-weight: bold;
+    }
+
+/* Button styles */
+.btn {
+    padding: 8px 12px;
+    margin: 3px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.403), 0 2px 5px rgba(0, 0, 0, 0.24);
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.btn-info {
+    background-color: #17a2b8;
+    color: #fff;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+.btn:hover {
+    opacity: 0.8;
+}
+
+/*-------------------------------------------------------------------------------------------------*/
+/*Edit Page Of task*/
+
+#editform {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #d4edda; /* Light green background */
+    border: 1px solid #c3e6cb; /* Green border */
+    border-radius: 10px; /* Rounded corners */
+    text-align: center; /* Center-align the content */
+    font-family: "Montserrat", sans-serif;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.403), 0 2px 5px rgba(0, 0, 0, 0.24);
+}
+
+    /* Form labels */
+    #editform .control-label {
+        font-weight: bold;
+    }
+
+    /* Form inputs */
+    #editform .form-control {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ced4da; /* Gray border */
+        border-radius: 3px; /* Rounded corners */
+        box-sizing: border-box;
+    }
+
+    /* Validation messages */
+    #editform .text-danger {
+        color: #dc3545; /* Red color for validation errors */
+    }
+
+    /* Submit button */
+    #editform .btn-default {
+        background-color: #007bff; /* Blue color for button */
+        color: #fff; /* White text color */
+        padding: 10px 20px;
+        border: none;
+        border-radius: 3px; /* Rounded corners */
+        cursor: pointer;
+    }
+
+        /* Submit button hover effect */
+        #editform .btn-default:hover {
+            opacity: 0.8;
+        }
+
+    /* Back to List link */
+    #editform .back-link {
+        display: block;
+        margin-top: 20px;
+        text-align: center;
+        color: #007bff; /* Blue color for link */
+    }
+
+#backbtn {
+    margin: 5px;
+}
+
+    #backbtn a {
+        color: white;
+    }
+
+/*-----------------------------------------------------------------------------------*/
+/* Styling for the Details section */
+#taskdetails {
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #d4edda; /* Light green background */
+    border: 1px solid #c3e6cb; /* Green border */
+    border-radius: 10px; /* Rounded corners */
+    text-align: center; /* Center-align the content */
+    font-family: "Montserrat", sans-serif;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.403), 0 2px 5px rgba(0, 0, 0, 0.24);
+    margin-bottom: 10px;
+}
+
+    #taskdetails h2 {
+        text-align: center; /* Center-align heading */
+    }
+
+    /* Styling for the TaskTable */
+    #taskdetails h4 {
+        margin-bottom: 10px;
+        font-size: 18px;
+    }
+
+    #taskdetails hr {
+        border-top: 1px solid #ccc;
+        margin-bottom: 20px;
+    }
+
+    #taskdetails dl dt {
+        font-weight: bold;
+    }
+
+    /* Styling for action links */
+    #taskdetails p a {
+        display: inline-block;
+        padding: 8px 16px;
+        background-color: #007bff; /* Blue background */
+        color: #fff;
+        text-decoration: none;
+        border-radius: 4px;
+        margin-right: 10px;
+    }
+
+        #taskdetails p a:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+
+/*------------------------------------------------------------------------------*/
+/* Styling for all Delete */
+div {
+    font-size: 16px; /* Increased font size */
+}
+
+/* Styling for the taskdelete section */
+#taskdelete {
+    padding: 20px;
+    background-color: #d4edda; /* Light green background */
+    border: 1px solid #c3e6cb; /* Green border */
+    border-radius: 10px; /* Rounded corners */
+    text-align: center; /* Center-align the content */
+    font-family: "Montserrat", sans-serif;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.403), 0 2px 5px rgba(0, 0, 0, 0.24);
+    margin-bottom: 10px;
+}
+
+    #taskdelete h3 {
+        text-align: center; /* Center-align heading */
+        margin-bottom: 10px;
+    }
+
+    #taskdelete hr {
+        border-top: 1px solid #ccc;
+        margin-bottom: 20px;
+    }
+
+    #taskdelete dl dt {
+        font-weight: bold;
+    }
+
+    /* Styling for form actions */
+    #taskdelete .form-actions {
+        margin-top: 20px;
+    }
+
+        #taskdelete .form-actions input[type="submit"] {
+            background-color: #dc3545; /* Red background */
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.403), 0 2px 5px rgba(0, 0, 0, 0.24);
+        }
+
+            #taskdelete .form-actions input[type="submit"]:hover {
+                background-color: #c82333; /* Darker red on hover */
+            }
+
+        #taskdelete .form-actions a {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: #007bff; /* Blue background */
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-right: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.403), 0 2px 5px rgba(0, 0, 0, 0.24);
+        }
+
+            #taskdelete .form-actions a:hover {
+                background-color: #0056b3; /* Darker blue on hover */
+            }
+/*-----------------------------------------------------------------------------------------------*/
+/*Login Card*/
+#loginCard {
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.403), 0 2px 5px rgba(0, 0, 0, 0.24);
+    padding: 20px;
+    text-align: center;
+    margin: 0 auto; /* Center align */
+    margin-top: 10px;
+    margin-bottom: 20px;
+    background-color: #d4edda; /* Light green background */
+}
+
+    #loginCard .card-title {
+        font-size: 1.25rem;
+        margin-bottom: 10px;
+    }
+
+    #loginCard .card-text {
+        margin-bottom: 20px;
+    }
+
+/***************************************************************************************************/
+/*Create Task*/
+#createtask {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.403), 0 2px 5px rgba(0, 0, 0, 0.24);
+    padding: 20px;
+    margin-top: 10px;
+    background-color: #d4edda; /* Light green background */
+}
+
+/*---------------------------------------------------------------------------------------------------------------*/
+
+/*Login Card*/
+#loginCard2 {
+}
+
+#logindata {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.403), 0 2px 5px rgba(0, 0, 0, 0.24);
+    padding: 20px;
+    margin-top: 10px;
+    background-color: #d4edda; /* Light green background */
+}
+
+#loginForm, #socialLoginForm {
+    margin: auto;
+}

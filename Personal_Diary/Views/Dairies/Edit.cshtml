@@ -1,0 +1,98 @@
+﻿@model Personal_Diary.Models.Dairy
+
+@{
+    ViewBag.Title = "Edit";
+}
+<style>
+
+    #Date_edit {
+        display: none;
+    }
+    #editform {
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #d4edda; /* Light green background */
+        border: 1px solid #c3e6cb; /* Green border */
+        border-radius: 10px; /* Rounded corners */
+        text-align: center; /* Center-align the content */
+        font-family: "Montserrat", sans-serif;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.403), 0 2px 5px rgba(0, 0, 0, 0.24);
+    }
+
+
+    #editform .control-label {
+        font-weight: bold;
+    }
+
+    #center_box {
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        align-items: center;
+    }
+
+    h4 {
+        padding:5px;
+        color: white;
+        background-color: mediumseagreen;
+        height: 40px;
+        justify-items: center;
+        justify-content: center;
+        border-radius: 20px;
+    }
+
+    .form-group input, select, textarea {
+        max-width: 800px;
+    }
+</style>
+<h2 id="taskheading">Edit</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal" id="editform">
+        <h4>Edit Entry for Dairy</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.id)
+
+
+    <div class="form-group control-label">
+        @Html.LabelFor(model => model.Dairy_Entry, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div id="center_box" class="big_box">
+            @Html.TextAreaFor(model => model.Dairy_Entry, new { htmlAttributes = new { @class = "form-control" }, rows = "8", cols = "100" })
+            <br />
+            @Html.ValidationMessageFor(model => model.Dairy_Entry, "", new { @class = "text-danger" })
+        </div>
+    </div>
+        
+        <div class="form-group" id="Date_edit">
+            @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div>
+                <input type="submit" value="Save" class="btn btn-info" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    <button id="backbtn" type="button" class="btn btn-success">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-90deg-left" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M1.146 4.854a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H12.5A2.5 2.5 0 0 1 15 6.5v8a.5.5 0 0 1-1 0v-8A1.5 1.5 0 0 0 12.5 5H2.707l3.147 3.146a.5.5 0 1 1-.708.708z" />
+        </svg>  @Html.ActionLink("Back to List", "Index")
+    </button>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

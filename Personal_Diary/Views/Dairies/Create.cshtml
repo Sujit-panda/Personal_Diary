@@ -1,0 +1,78 @@
+﻿@model Personal_Diary.Models.Dairy
+
+@{
+    ViewBag.Title = "Create";
+}
+<style>
+
+    .form-group input, select, textarea {
+        max-width: 800px;
+    }
+    .btn1 {
+        padding: 8px 12px;
+        margin: 3px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        text-decoration: none;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.403), 0 2px 5px rgba(0, 0, 0, 0.24);
+    }
+
+    .btn-primary1 {
+        background-color: green;
+        color: #fff;
+    }
+
+    .btn1:hover {
+        opacity: 0.8;
+        background-color: mediumseagreen;
+        transform: scale(1.1)
+    }
+</style>
+<h2 id="taskheading">Create</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal"  id="createtask">
+        <h4>Dairy</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div>
+            @{
+                DateTime currentDate = DateTime.Now.Date;
+                String Date = currentDate.ToString("yyyy-MM-dd");
+            }
+            <p>@Date</p>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Dairy_Entry, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div id="center_box" class="big_box">
+                @Html.TextAreaFor(model => model.Dairy_Entry, new { htmlAttributes = new { @class = "form-control" }, rows = "8", cols = "1000" })
+                @Html.ValidationMessageFor(model => model.Dairy_Entry, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn1 btn-primary1" />
+            </div>
+        </div>
+    </div>
+}
+<div>
+    <button id="backbtn" type="button" class="btn btn-success">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-90deg-left" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M1.146 4.854a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H12.5A2.5 2.5 0 0 1 15 6.5v8a.5.5 0 0 1-1 0v-8A1.5 1.5 0 0 0 12.5 5H2.707l3.147 3.146a.5.5 0 1 1-.708.708z" />
+        </svg>  @Html.ActionLink("Back to List", "Index")
+    </button>
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
